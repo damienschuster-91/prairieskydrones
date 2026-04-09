@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sioux Falls Drone Photography | Real Estate Aerial Video | Prairie Sky Drones</title>
+  <meta name="description" content="Sioux Falls' #1 drone photography company for real estate. FAA-certified pilots serving Sioux Falls, Brandon, Tea, Harrisburg, and all of South Dakota." />
+  <link rel="canonical" href="https://www.prairieskydrones.com/" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Prairie Sky Drones",
+    "description": "FAA-certified drone photography for real estate in Sioux Falls, SD.",
+    "url": "https://www.prairieskydrones.com",
+    "telephone": "+1-605-555-0199",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sioux Falls",
+      "addressRegion": "SD",
+      "postalCode": "57101",
+      "addressCountry": "US"
+    },
+    "areaServed": ["Sioux Falls","Brandon","Tea","Harrisburg","Dell Rapids","Baltic","Lennox","Canton"],
+    "priceRange": "$$"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&family=Lato:ital,wght@1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --cream:      #f5f0e8;
+      --parchment:  #ede6d6;
+      --wheat:      #d4b896;
+      --sky:        #7ab3d4;
+      --sky-deep:   #3a7fa8;
+      --sky-pale:   #c8e0ee;
+      --horizon:    #e8c88a;
+      --sienna:     #b5572a;
+      --sienna-lt:  #d4703a;
+      --charcoal:   #2c2416;
+      --brown-mid:  #6b4f2e;
+      --muted:      #8a7560;
+      --card:       #ffffff;
+      --border:     rgba(107,79,46,0.15);
+      --border-warm: rgba(181,87,42,0.2);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--cream);
+      color: var(--charcoal);
+      font-family: 'Lato', sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Grain overlay */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 9999;
+      pointer-events: none;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 256px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 998;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw; height: 68px;
+      background: rgba(245,240,232,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      color: var(--charcoal);
+      cursor: pointer;
+      letter-spacing: 0.01em;
+    }
+    .nav-logo em {
+      color: var(--sienna);
+      font-style: italic;
+    }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a {
+      color: var(--brown-mid); text-decoration: none;
+      font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;
+      font-weight: 700; opacity: 0.7;
+      transition: opacity 0.2s, color 0.2s; cursor: pointer;
+    }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--sienna); }
+    .nav-cta {
+      background: var(--sienna) !important; color: var(--cream) !important;
+      padding: 0.5rem 1.4rem; opacity: 1 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--sienna-lt) !important; }
+
+    /* ── PAGES ── */
+    .page { display: none; padding-top: 68px; }
+    .page.active { display: block; animation: fadeUp 0.35s ease both; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ══════════════════════════════════════
+       HOME — HERO
+    ══════════════════════════════════════ */
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 68px);
+      display: flex; flex-direction: column;
+      justify-content: center;
+      padding: 5rem 6vw 8rem;
+      overflow: hidden;
+    }
+
+    /* Sky gradient background */
+    .hero-sky {
+      position: absolute; inset: 0; z-index: 0;
+      background: linear-gradient(
+        180deg,
+        #c8dff0 0%,
+        #dbeaf5 25%,
+        #eef4f9 45%,
+        #f5f0e8 65%,
+        #ede6d6 100%
+      );
+    }
+
+    /* Horizon glow */
+    .hero-horizon {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 45%; z-index: 1;
+      background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(212,184,150,0.3) 50%,
+        rgba(232,200,138,0.5) 100%
+      );
+    }
+
+    /* Prairie ground line */
+    .hero-ground {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 120px; z-index: 1;
+      background: linear-gradient(180deg, transparent 0%, rgba(180,140,80,0.18) 100%);
+    }
+
+    /* Horizon line SVG */
+    .hero-landscape {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      z-index: 2; opacity: 0.12;
+    }
+
+    /* Clouds */
+    .cloud {
+      position: absolute; z-index: 2;
+      background: white;
+      border-radius: 50px;
+      opacity: 0;
+      animation: cloudDrift linear infinite;
+    }
+    .cloud::before, .cloud::after {
+      content: ''; position: absolute;
+      background: white; border-radius: 50%;
+    }
+    .c1 { width: 180px; height: 50px; top: 12%; left: -200px; animation-duration: 60s; animation-delay: 0s; opacity: 0; }
+    .c1::before { width: 80px; height: 60px; top: -30px; left: 20px; }
+    .c1::after  { width: 60px; height: 45px; top: -20px; left: 70px; }
+    .c2 { width: 120px; height: 35px; top: 20%; left: -150px; animation-duration: 80s; animation-delay: -25s; opacity: 0; }
+    .c2::before { width: 60px; height: 50px; top: -25px; left: 15px; }
+    .c2::after  { width: 50px; height: 38px; top: -18px; left: 50px; }
+    .c3 { width: 220px; height: 55px; top: 8%; left: -250px; animation-duration: 70s; animation-delay: -40s; opacity: 0; }
+    .c3::before { width: 100px; height: 70px; top: -35px; left: 25px; }
+    .c3::after  { width: 75px; height: 55px; top: -25px; left: 100px; }
+
+    @keyframes cloudDrift {
+      0%   { transform: translateX(0);     opacity: 0; }
+      5%   { opacity: 0.7; }
+      90%  { opacity: 0.7; }
+      100% { transform: translateX(110vw); opacity: 0; }
+    }
+
+    .hero-content { position: relative; z-index: 3; max-width: 700px; }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: rgba(181,87,42,0.1);
+      border: 1px solid rgba(181,87,42,0.25);
+      color: var(--sienna);
+      padding: 0.35rem 1rem;
+      font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+      font-weight: 700; margin-bottom: 1.8rem;
+      font-family: 'Lato', sans-serif;
+    }
+    .hero-eyebrow::before { content: '📍'; font-size: 0.8rem; }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 1.05;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+    .hero h1 em {
+      color: var(--sienna);
+      font-style: italic;
+    }
+    .hero h1 .sky-word {
+      color: var(--sky-deep);
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--brown-mid);
+      max-width: 540px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+    .hero-sub strong { font-weight: 700; color: var(--charcoal); }
+
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 4rem; }
+
+    .btn-primary {
+      background: var(--sienna); color: var(--cream);
+      padding: 0.9rem 2.2rem; font-weight: 700;
+      font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
+      border: none; cursor: pointer;
+      font-family: 'Lato', sans-serif;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--sienna-lt); transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent; color: var(--charcoal);
+      padding: 0.9rem 2.2rem; font-weight: 700;
+      font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
+      border: 1.5px solid rgba(44,36,22,0.25); cursor: pointer;
+      font-family: 'Lato', sans-serif;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--sienna); color: var(--sienna); }
+
+    .hero-stats {
+      display: flex; gap: 3rem; flex-wrap: wrap;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .stat-item {}
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem; color: var(--sienna);
+      line-height: 1; font-weight: 700;
+    }
+    .stat-label {
+      font-size: 0.75rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted);
+      font-weight: 700; margin-top: 0.2rem;
+    }
+
+    /* Drone illustration */
+    .hero-drone-wrap {
+      position: absolute; right: 5%; top: 50%;
+      transform: translateY(-50%);
+      width: min(380px, 40vw);
+      z-index: 3;
+      animation: droneFloat 6s ease-in-out infinite;
+    }
+    @keyframes droneFloat {
+      0%, 100% { transform: translateY(-50%) translateY(0px); }
+      50%       { transform: translateY(-50%) translateY(-18px); }
+    }
+
+    /* ── SERVICES STRIP ── */
+    .strip {
+      background: var(--sienna);
+      padding: 0.8rem 6vw;
+      display: flex; gap: 2.5rem; overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .strip::-webkit-scrollbar { display: none; }
+    .strip-item {
+      font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(245,240,232,0.85); font-weight: 700;
+      white-space: nowrap; display: flex; align-items: center; gap: 0.5rem;
+    }
+    .strip-item::before { content: '✦'; font-size: 0.45rem; color: var(--horizon); }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 6vw; }
+
+    .section-eyebrow {
+      display: flex; align-items: center; gap: 0.75rem;
+      font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+      font-weight: 700; color: var(--sienna); margin-bottom: 1rem;
+    }
+    .section-eyebrow::before { content: ''; width: 28px; height: 1.5px; background: var(--sienna); display: block; }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      line-height: 1.1; letter-spacing: -0.01em;
+      color: var(--charcoal); margin-bottom: 1.2rem;
+      font-weight: 700;
+    }
+    h2 em { color: var(--sienna); font-style: italic; }
+    h2 .sky { color: var(--sky-deep); }
+
+    /* ── SERVICES GRID ── */
+    .services-section { background: var(--parchment); }
+    .services-intro {
+      display: flex; justify-content: space-between;
+      align-items: flex-end; gap: 2rem; margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+    .services-intro p { color: var(--muted); max-width: 420px; font-size: 0.95rem; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: var(--card);
+      padding: 2.2rem;
+      border: 1px solid var(--border);
+      transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+      position: relative;
+    }
+    .service-card:hover {
+      box-shadow: 0 8px 32px rgba(107,79,46,0.12);
+      transform: translateY(-3px);
+      border-color: var(--wheat);
+    }
+    .service-tag {
+      display: inline-block;
+      background: rgba(181,87,42,0.08);
+      color: var(--sienna);
+      font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+      font-weight: 700; padding: 0.25rem 0.7rem;
+      margin-bottom: 1.2rem;
+    }
+    .service-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; font-weight: 600;
+      color: var(--charcoal); margin-bottom: 0.6rem;
+    }
+    .service-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.65; }
+    .service-price {
+      display: block; margin-top: 1.5rem;
+      font-weight: 700; color: var(--sienna);
+      font-size: 0.9rem;
+    }
+    .service-card::after {
+      content: ''; position: absolute;
+      bottom: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--sienna), var(--horizon));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+    .service-card:hover::after { transform: scaleX(1); }
+
+    /* ── WHY US ── */
+    .why-section {
+      background: linear-gradient(160deg, #e8eff5 0%, var(--sky-pale) 40%, var(--parchment) 100%);
+    }
+    .why-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+    .why-list { display: flex; flex-direction: column; gap: 1.8rem; margin-top: 2.5rem; }
+    .why-item { display: flex; gap: 1.2rem; }
+    .why-check {
+      width: 36px; height: 36px; flex-shrink: 0;
+      background: var(--sienna); color: var(--cream);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; margin-top: 0.1rem;
+    }
+    .why-item h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 600;
+      color: var(--charcoal); margin-bottom: 0.3rem;
+    }
+    .why-item p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+
+    /* Coverage card */
+    .coverage-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+    }
+    .coverage-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; font-weight: 600;
+      color: var(--charcoal); margin-bottom: 0.5rem;
+    }
+    .coverage-card p { color: var(--muted); font-size: 0.88rem; margin-bottom: 1.8rem; }
+    .city-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+    }
+    .city-pill {
+      background: rgba(122,179,212,0.12);
+      border: 1px solid rgba(122,179,212,0.3);
+      color: var(--sky-deep);
+      padding: 0.4rem 0.9rem;
+      font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.05em; text-align: center;
+    }
+    .coverage-note {
+      margin-top: 1.2rem;
+      font-size: 0.78rem; color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-section {
+      background: var(--charcoal);
+    }
+    .testimonials-section .section-eyebrow { color: var(--horizon); }
+    .testimonials-section .section-eyebrow::before { background: var(--horizon); }
+    .testimonials-section h2 { color: var(--cream); }
+    .testimonials-section h2 em { color: var(--horizon); }
+
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .testimonial-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 2rem;
+      position: relative;
+    }
+    .quote-mark {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem; line-height: 1;
+      color: var(--sienna); opacity: 0.3;
+      position: absolute; top: 0.5rem; left: 1.5rem;
+    }
+    .testimonial-text {
+      color: rgba(245,240,232,0.8); font-size: 0.95rem;
+      line-height: 1.75; margin-bottom: 1.5rem;
+      font-style: italic; padding-top: 1.5rem;
+      font-family: 'Playfair Display', serif;
+    }
+    .testimonial-stars { color: var(--horizon); font-size: 0.85rem; margin-bottom: 0.5rem; }
+    .testimonial-author strong {
+      display: block; color: var(--cream); font-weight: 700; font-size: 0.9rem;
+    }
+    .testimonial-author span { color: var(--muted); font-size: 0.8rem; }
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--sky-deep) 0%, #2a6a92 100%);
+      padding: 5rem 6vw;
+      display: flex; gap: 3rem;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; position: relative; overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute; top: -50%; right: -10%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-banner h2 { color: white; margin-bottom: 0.5rem; }
+    .cta-banner p { color: rgba(255,255,255,0.75); max-width: 460px; }
+    .btn-cream {
+      background: var(--cream); color: var(--sienna);
+      padding: 1rem 2.5rem; font-weight: 700;
+      font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
+      border: none; cursor: pointer; white-space: nowrap;
+      font-family: 'Lato', sans-serif;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-cream:hover { background: white; transform: translateY(-2px); }
+
+    /* ══════════════════════════════════════
+       ABOUT PAGE
+    ══════════════════════════════════════ */
+    .page-hero {
+      background: linear-gradient(160deg, #c8dff0 0%, #deeaf5 30%, var(--parchment) 100%);
+      padding: 5rem 6vw 4rem;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--sienna), var(--horizon), transparent);
+    }
+    .page-eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+      font-weight: 700; color: var(--sky-deep); margin-bottom: 1rem;
+    }
+    .page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      line-height: 1.05; font-weight: 700;
+      color: var(--charcoal); margin-bottom: 1.2rem;
+    }
+    .page-hero h1 em { color: var(--sienna); font-style: italic; }
+    .page-hero-sub { color: var(--brown-mid); font-weight: 300; max-width: 580px; font-size: 1.05rem; }
+
+    .about-layout { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; }
+    .about-sticky { position: sticky; top: 88px; }
+
+    .pilot-card {
+      background: var(--card); border: 1px solid var(--border);
+      padding: 2rem; text-align: center;
+    }
+    .pilot-photo {
+      width: 100%; height: 280px;
+      background: linear-gradient(160deg, var(--sky-pale), var(--parchment));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem; margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .faa-badge {
+      position: absolute; bottom: -1px; left: 0; right: 0;
+      background: var(--sienna); color: var(--cream);
+      padding: 0.5rem; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .pilot-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 600; color: var(--charcoal);
+      margin-bottom: 0.25rem;
+    }
+    .pilot-title { color: var(--muted); font-size: 0.85rem; margin-bottom: 1.5rem; }
+
+    .cert-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
+    .cert-item {
+      display: flex; align-items: center; gap: 1rem;
+      background: var(--parchment); padding: 0.9rem 1.2rem;
+      border-left: 3px solid var(--sienna); text-align: left;
+    }
+    .cert-item strong { display: block; font-size: 0.88rem; color: var(--charcoal); }
+    .cert-item span { font-size: 0.78rem; color: var(--muted); }
+
+    .about-body {}
+    .about-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 600;
+      color: var(--sienna); margin-bottom: 0.75rem; margin-top: 2.5rem;
+    }
+    .about-body h3:first-child { margin-top: 0; }
+    .about-body p { color: var(--brown-mid); margin-bottom: 1rem; font-size: 0.95rem; line-height: 1.8; }
+
+    .coverage-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+    .coverage-table th {
+      background: var(--parchment); padding: 0.75rem 1rem;
+      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      font-weight: 700; text-align: left; color: var(--sienna);
+      border-bottom: 2px solid var(--wheat);
+    }
+    .coverage-table td {
+      padding: 0.75rem 1rem; font-size: 0.9rem;
+      border-bottom: 1px solid var(--border); color: var(--brown-mid);
+    }
+    .coverage-table tr:hover td { background: rgba(212,184,150,0.1); }
+
+    /* ══════════════════════════════════════
+       ARTICLES
+    ══════════════════════════════════════ */
+    .articles-layout {
+      display: grid; grid-template-columns: 1fr 290px;
+      gap: 4rem; padding: 4rem 6vw; align-items: start;
+    }
+    .article-featured {
+      background: var(--card); border: 1px solid var(--border);
+      margin-bottom: 2rem; cursor: pointer;
+      transition: box-shadow 0.25s;
+    }
+    .article-featured:hover { box-shadow: 0 8px 32px rgba(107,79,46,0.1); }
+    .article-featured-img {
+      height: 240px;
+      background: linear-gradient(160deg, var(--sky-pale) 0%, var(--parchment) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem; position: relative;
+    }
+    .featured-badge {
+      position: absolute; top: 1rem; left: 1rem;
+      background: var(--sienna); color: var(--cream);
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+      padding: 0.3rem 0.8rem; text-transform: uppercase;
+    }
+    .article-featured-body { padding: 2rem; }
+    .article-meta {
+      display: flex; gap: 1.5rem;
+      font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+      font-weight: 700; color: var(--muted); margin-bottom: 0.75rem;
+    }
+    .article-meta .tag { color: var(--sienna); }
+    .article-featured h2 { font-size: clamp(1.3rem, 3vw, 1.8rem); margin-bottom: 0.75rem; }
+    .article-featured p { color: var(--muted); font-size: 0.9rem; }
+    .read-more {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      margin-top: 1.2rem; color: var(--sienna);
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; cursor: pointer;
+      transition: gap 0.2s;
+    }
+    .read-more:hover { gap: 0.9rem; }
+
+    .article-cards { display: flex; flex-direction: column; gap: 1rem; }
+    .article-card {
+      background: var(--card); border: 1px solid var(--border);
+      padding: 1.4rem; display: flex; gap: 1.2rem;
+      cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .article-card:hover { border-color: var(--wheat); box-shadow: 0 4px 16px rgba(107,79,46,0.08); }
+    .article-card-thumb {
+      width: 90px; height: 72px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--sky-pale), var(--parchment));
+      display: flex; align-items: center; justify-content: center; font-size: 1.8rem;
+    }
+    .article-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; font-weight: 600;
+      color: var(--charcoal); margin-bottom: 0.3rem; line-height: 1.3;
+    }
+    .article-card p { font-size: 0.83rem; color: var(--muted); }
+
+    .sidebar-box {
+      background: var(--card); border: 1px solid var(--border);
+      padding: 1.5rem; margin-bottom: 1.5rem;
+    }
+    .sidebar-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; font-weight: 600; color: var(--charcoal);
+      border-bottom: 2px solid var(--wheat); padding-bottom: 0.75rem; margin-bottom: 1.2rem;
+    }
+    .sidebar-list { list-style: none; }
+    .sidebar-list li {
+      padding: 0.45rem 0; border-bottom: 1px solid var(--border);
+      font-size: 0.85rem; cursor: pointer; color: var(--brown-mid);
+      transition: color 0.2s;
+    }
+    .sidebar-list li:hover { color: var(--sienna); }
+    .sidebar-list li:last-child { border-bottom: none; }
+
+    .sidebar-cta {
+      background: var(--sienna); padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .sidebar-cta h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; color: var(--cream); margin-bottom: 0.5rem;
+    }
+    .sidebar-cta p { color: rgba(245,240,232,0.8); font-size: 0.83rem; margin-bottom: 1.2rem; }
+    .btn-cream-sm {
+      background: var(--cream); color: var(--sienna);
+      padding: 0.65rem 1.2rem; font-weight: 700;
+      font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+      border: none; cursor: pointer; width: 100%;
+      font-family: 'Lato', sans-serif;
+    }
+
+    /* Article Single */
+    .article-single { padding: 4rem 6vw; max-width: 820px; }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--muted); cursor: pointer;
+      margin-bottom: 2rem; transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--sienna); }
+    .article-single h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1;
+      color: var(--charcoal); margin-bottom: 1rem; font-weight: 700;
+    }
+    .article-body p { color: var(--brown-mid); margin-bottom: 1.2rem; font-size: 0.95rem; line-height: 1.8; }
+    .article-body h2 { font-size: clamp(1.3rem, 3vw, 1.8rem); margin-top: 2.5rem; margin-bottom: 1rem; }
+    .article-body ul { padding-left: 1.5rem; margin-bottom: 1.2rem; color: var(--brown-mid); font-size: 0.95rem; }
+    .article-body ul li { margin-bottom: 0.5rem; }
+
+    /* ══════════════════════════════════════
+       CONTACT
+    ══════════════════════════════════════ */
+    .contact-layout {
+      display: grid; grid-template-columns: 1fr 1.2fr;
+      gap: 5rem; padding: 4rem 6vw; align-items: start;
+    }
+    .contact-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem; font-weight: 600;
+      color: var(--sienna); margin-bottom: 0.4rem; margin-top: 2rem;
+    }
+    .contact-info h3:first-child { margin-top: 0; }
+    .contact-info p { color: var(--brown-mid); font-size: 0.9rem; }
+    .process-steps { display: flex; flex-direction: column; gap: 1rem; margin-top: 0.5rem; }
+    .process-step {
+      display: flex; gap: 1rem; align-items: flex-start;
+    }
+    .step-num {
+      width: 28px; height: 28px; flex-shrink: 0;
+      background: var(--sienna); color: var(--cream);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; font-weight: 700;
+    }
+    .process-step p { font-size: 0.88rem; color: var(--brown-mid); padding-top: 0.25rem; }
+
+    .form-row { margin-bottom: 1.2rem; }
+    .form-row label {
+      display: block; font-size: 0.72rem; letter-spacing: 0.12em;
+      text-transform: uppercase; font-weight: 700;
+      color: var(--brown-mid); margin-bottom: 0.5rem;
+    }
+    .form-row input,
+    .form-row select,
+    .form-row textarea {
+      width: 100%; background: var(--card);
+      border: 1.5px solid var(--border); color: var(--charcoal);
+      padding: 0.85rem 1rem; font-family: 'Lato', sans-serif;
+      font-size: 0.95rem; outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-row input:focus,
+    .form-row select:focus,
+    .form-row textarea:focus { border-color: var(--sienna); }
+    .form-row textarea { height: 130px; resize: vertical; }
+    .form-submit {
+      background: var(--sienna); color: var(--cream);
+      border: none; padding: 1rem 2.5rem; width: 100%;
+      font-family: 'Lato', sans-serif; font-weight: 700;
+      font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .form-submit:hover { background: var(--sienna-lt); }
+    #form-success {
+      display: none; margin-top: 1rem; padding: 1rem;
+      background: rgba(181,87,42,0.08); border: 1px solid var(--sienna);
+      color: var(--sienna); font-size: 0.82rem; font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    /* ══════════════════════════════════════
+       TEMPLATE GUIDE
+    ══════════════════════════════════════ */
+    .template-guide { padding: 4rem 6vw; }
+    .template-section {
+      background: var(--card); border: 1px solid var(--border);
+      padding: 2.5rem; margin-bottom: 2rem;
+    }
+    .template-section h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem; font-weight: 600;
+      color: var(--sienna); margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .template-badge {
+      background: rgba(181,87,42,0.1); color: var(--sienna);
+      font-family: 'Lato', sans-serif; font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.1em; padding: 0.2rem 0.7rem;
+      border: 1px solid var(--border-warm); text-transform: uppercase;
+    }
+    .template-table { width: 100%; border-collapse: collapse; }
+    .template-table th {
+      background: var(--parchment); padding: 0.75rem 1rem;
+      font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+      font-weight: 700; text-align: left; color: var(--sienna);
+      border-bottom: 2px solid var(--wheat);
+    }
+    .template-table td {
+      padding: 0.75rem 1rem; font-size: 0.88rem;
+      border-bottom: 1px solid var(--border); vertical-align: top;
+    }
+    .template-table td:first-child { color: var(--charcoal); font-weight: 700; width: 200px; }
+    .template-table td:last-child { color: var(--brown-mid); }
+    code {
+      background: var(--parchment); color: var(--sienna);
+      padding: 0.15rem 0.5rem; font-size: 0.8rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--charcoal);
+      padding: 4rem 6vw 2rem;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem; margin-bottom: 3rem;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; color: var(--cream);
+      margin-bottom: 1rem; display: block;
+      cursor: pointer;
+    }
+    .footer-logo em { color: var(--horizon); font-style: italic; }
+    footer p { color: rgba(245,240,232,0.5); font-size: 0.85rem; max-width: 280px; }
+    footer h4 {
+      font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+      font-weight: 700; color: var(--horizon); margin-bottom: 1.2rem;
+    }
+    footer ul { list-style: none; }
+    footer ul li { margin-bottom: 0.6rem; }
+    footer ul li a {
+      color: rgba(245,240,232,0.5); text-decoration: none; font-size: 0.88rem;
+      transition: color 0.2s; cursor: pointer;
+    }
+    footer ul li a:hover { color: var(--cream); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 1.5rem;
+      display: flex; justify-content: space-between;
+      font-size: 0.72rem; letter-spacing: 0.06em; color: rgba(245,240,232,0.35);
+      flex-wrap: wrap; gap: 1rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .why-grid, .about-layout, .contact-layout, .articles-layout { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-drone-wrap { display: none; }
+      .articles-sidebar { position: static; }
+    }
+    @media (max-width: 640px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+      .hero h1 { font-size: 2.8rem; }
+      .hero-stats { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-logo" onclick="showPage('home')">Prairie Sky <em>Drones</em></div>
+  <div class="nav-links">
+    <a onclick="showPage('home')" id="nav-home" class="active">Home</a>
+    <a onclick="showPage('about')" id="nav-about">About</a>
+    <a onclick="showPage('articles')" id="nav-articles">Resources</a>
+    <a onclick="showPage('templates')" id="nav-templates">Page Guide</a>
+    <a onclick="showPage('contact')" class="nav-cta" id="nav-contact">Book a Flyover</a>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════
+     HOME
+══════════════════════════════════════ -->
+<div id="page-home" class="page active">
+
+  <section class="hero">
+    <div class="hero-sky"></div>
+    <div class="hero-horizon"></div>
+    <div class="hero-ground"></div>
+
+    <!-- Clouds -->
+    <div class="cloud c1"></div>
+    <div class="cloud c2"></div>
+    <div class="cloud c3"></div>
+
+    <!-- Prairie horizon SVG -->
+    <svg class="hero-landscape" viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0,80 Q180,40 360,70 Q540,100 720,60 Q900,20 1080,55 Q1260,90 1440,65 L1440,120 L0,120 Z" fill="#8a7040"/>
+    </svg>
+
+    <!-- Floating drone -->
+    <div class="hero-drone-wrap">
+      <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Shadow under drone -->
+        <ellipse cx="200" cy="270" rx="80" ry="10" fill="rgba(107,79,46,0.15)"/>
+        <!-- Body -->
+        <rect x="155" y="125" width="90" height="45" rx="6" fill="#3a7fa8" opacity="0.9"/>
+        <rect x="175" y="115" width="50" height="65" rx="5" fill="#2a6a92" opacity="0.85"/>
+        <!-- Camera gimbal -->
+        <circle cx="200" cy="185" r="14" fill="#2c2416" opacity="0.8"/>
+        <circle cx="200" cy="185" r="7" fill="#1a1008" opacity="0.9"/>
+        <!-- Arms -->
+        <rect x="75" y="140" width="80" height="12" rx="4" fill="#4a8ab8" opacity="0.8"/>
+        <rect x="245" y="140" width="80" height="12" rx="4" fill="#4a8ab8" opacity="0.8"/>
+        <rect x="140" y="80" width="12" height="78" rx="4" fill="#4a8ab8" opacity="0.8"/>
+        <rect x="248" y="80" width="12" height="78" rx="4" fill="#4a8ab8" opacity="0.8"/>
+        <!-- Rotor hubs -->
+        <circle cx="80" cy="138" r="8" fill="#2c2416"/>
+        <circle cx="320" cy="138" r="8" fill="#2c2416"/>
+        <circle cx="146" cy="80" r="8" fill="#2c2416"/>
+        <circle cx="254" cy="80" r="8" fill="#2c2416"/>
+        <!-- Rotors (blurred) -->
+        <ellipse cx="80" cy="138" rx="44" ry="7" fill="#7ab3d4" opacity="0.35"/>
+        <ellipse cx="320" cy="138" rx="44" ry="7" fill="#7ab3d4" opacity="0.35"/>
+        <ellipse cx="146" cy="80" rx="44" ry="7" fill="#7ab3d4" opacity="0.35"/>
+        <ellipse cx="254" cy="80" rx="44" ry="7" fill="#7ab3d4" opacity="0.35"/>
+        <!-- Landing gear -->
+        <line x1="175" y1="168" x2="165" y2="195" stroke="#2c2416" stroke-width="3" opacity="0.6"/>
+        <line x1="225" y1="168" x2="235" y2="195" stroke="#2c2416" stroke-width="3" opacity="0.6"/>
+        <line x1="155" y1="195" x2="185" y2="195" stroke="#2c2416" stroke-width="4" opacity="0.6"/>
+        <line x1="215" y1="195" x2="245" y2="195" stroke="#2c2416" stroke-width="4" opacity="0.6"/>
+      </svg>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">Sioux Falls, South Dakota</div>
+      <h1>Your Listings,<br/>Seen From<br/><em>the Sky</em></h1>
+      <p class="hero-sub">FAA-certified aerial photography and video for real estate agents across Sioux Falls and SE South Dakota. Listings with drone video sell <strong>68% faster</strong> — let's put that to work for you.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="showPage('contact')">Book a Flyover</button>
+        <button class="btn-outline" onclick="showPage('about')">Our Story</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">FAA</div>
+          <div class="stat-label">Part 107 Certified</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">48hr</div>
+          <div class="stat-label">Turnaround</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">4K</div>
+          <div class="stat-label">Ultra HD Video</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">8+</div>
+          <div class="stat-label">Counties Served</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="strip-item">Real Estate Flyovers</div>
+    <div class="strip-item">Residential Aerials</div>
+    <div class="strip-item">Twilight Shoots</div>
+    <div class="strip-item">Acreage & Farm Land</div>
+    <div class="strip-item">MLS-Ready Delivery</div>
+    <div class="strip-item">Agent Packages</div>
+    <div class="strip-item">Cinematic Tours</div>
+    <div class="strip-item">Same-Day Rush</div>
+  </div>
+
+  <!-- Services -->
+  <section class="services-section">
+    <div class="services-intro">
+      <div>
+        <div class="section-eyebrow">What We Offer</div>
+        <h2>Every Listing Deserves<br/>the <em>Aerial Advantage</em></h2>
+      </div>
+      <p>Built for Sioux Falls real estate agents who need fast turnaround, professional results, and files that work immediately in the MLS.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-tag">Most Popular</span>
+        <h3>Residential Flyover</h3>
+        <p>Aerial photography and video of homes, lots, and neighborhoods. Delivered MLS-ready within 48 hours of your shoot.</p>
+        <span class="service-price">Starting at $149</span>
+      </div>
+      <div class="service-card">
+        <span class="service-tag">Luxury</span>
+        <h3>New Construction</h3>
+        <p>Showcase square footage, lot premium, and builder quality from angles ground cameras can't capture. Builder packages available.</p>
+        <span class="service-price">Starting at $249</span>
+      </div>
+      <div class="service-card">
+        <span class="service-tag">Rural</span>
+        <h3>Acreage & Farm Land</h3>
+        <p>Let out-of-state buyers see every acre — fields, tree lines, ponds, outbuildings — in a single flyover video.</p>
+        <span class="service-price">Starting at $199</span>
+      </div>
+      <div class="service-card">
+        <span class="service-tag">Premium</span>
+        <h3>Twilight Shoot</h3>
+        <p>Golden hour and dusk photography stops buyers mid-scroll. Our most-requested upgrade for listings above $400K.</p>
+        <span class="service-price">Add $99</span>
+      </div>
+      <div class="service-card">
+        <span class="service-tag">Full Package</span>
+        <h3>Cinematic Video Tour</h3>
+        <p>Ground walk-through combined with aerial footage, branded with your agent info. Ready for Zillow, YouTube, and Reels.</p>
+        <span class="service-price">Starting at $349</span>
+      </div>
+      <div class="service-card">
+        <span class="service-tag">Agents</span>
+        <h3>Monthly Package</h3>
+        <p>For active agents listing 2+ homes a month. Flat-rate pricing, priority scheduling, and consistent MLS-ready delivery.</p>
+        <span class="service-price">Contact for pricing</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Us -->
+  <section class="why-section">
+    <div class="why-grid">
+      <div>
+        <div class="section-eyebrow">Why Prairie Sky</div>
+        <h2>Built for South Dakota.<br/>Not a <em>National Chain.</em></h2>
+        <p style="color:var(--brown-mid); font-weight:300; margin-bottom:0.5rem;">We're not a network with a subcontractor driving out from Minneapolis. We live here, we know the market, and we're built around your listing timeline — not ours.</p>
+        <div class="why-list">
+          <div class="why-item">
+            <div class="why-check">✓</div>
+            <div>
+              <h4>FAA Part 107 Certified</h4>
+              <p>Fully licensed and insured for commercial drone operations in South Dakota. Your listing is protected.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-check">✓</div>
+            <div>
+              <h4>48-Hour Turnaround, Guaranteed</h4>
+              <p>Listing timelines don't wait. Edited photos and video delivered within 48 hours of the shoot, every time.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-check">✓</div>
+            <div>
+              <h4>MLS + Social Ready Files</h4>
+              <p>Every delivery includes MLS-compliant formats plus versions sized for Instagram, Zillow, and Realtor.com.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-check">✓</div>
+            <div>
+              <h4>True Local Knowledge</h4>
+              <p>We know golden hour over the Big Sioux, which neighborhoods photograph best from above, and what makes buyers schedule a showing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="coverage-card">
+        <h3>📍 Our Coverage Area</h3>
+        <p>Based in Sioux Falls. No travel fees within 40 miles. Same-week scheduling across all areas below.</p>
+        <div class="city-grid">
+          <span class="city-pill">Sioux Falls</span>
+          <span class="city-pill">Brandon</span>
+          <span class="city-pill">Tea</span>
+          <span class="city-pill">Harrisburg</span>
+          <span class="city-pill">Dell Rapids</span>
+          <span class="city-pill">Baltic</span>
+          <span class="city-pill">Hartford</span>
+          <span class="city-pill">Lennox</span>
+          <span class="city-pill">Canton</span>
+          <span class="city-pill">Crooks</span>
+          <span class="city-pill">Valley Springs</span>
+          <span class="city-pill">Garretson</span>
+        </div>
+        <p class="coverage-note">Minnehaha, Lincoln, Turner & McCook counties. Extended travel available — contact us for areas beyond 40 miles.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials-section">
+    <div class="section-eyebrow">Client Reviews</div>
+    <h2>What Sioux Falls Agents<br/>Are <em>Saying</em></h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="quote-mark">"</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">We listed a home in Tea and within 48 hours had the most beautiful aerial video I've ever seen for a residential property. Three offers in the first weekend.</p>
+        <div class="testimonial-author">
+          <strong>Jennifer M.</strong>
+          <span>RE/MAX Associates · Sioux Falls, SD</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-mark">"</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">I had 40 acres outside Harrisburg sitting for 90 days with traditional photos. Prairie Sky did a full aerial package and we had a signed offer in 12 days.</p>
+        <div class="testimonial-author">
+          <strong>Dale T.</strong>
+          <span>Century 21 · Harrisburg, SD</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-mark">"</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Twilight shoot on a $700K new construction in Brandon — my broker couldn't believe those were drone shots from a local company. Genuinely stunning work.</p>
+        <div class="testimonial-author">
+          <strong>Sarah K.</strong>
+          <span>Keller Williams Realty · Brandon, SD</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-banner">
+    <div>
+      <h2>Ready to Elevate<br/>Your Next Listing?</h2>
+      <p>Serving Sioux Falls, Brandon, Tea, Harrisburg and all of SE South Dakota. Same-week scheduling available.</p>
+    </div>
+    <button class="btn-cream" onclick="showPage('contact')">Book Your Flyover →</button>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <span class="footer-logo" onclick="showPage('home')">Prairie Sky <em>Drones</em></span>
+        <p>Sioux Falls' drone photography company for real estate. FAA Part 107 certified. Serving SE South Dakota.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a>Residential Flyovers</a></li>
+          <li><a>Luxury & New Construction</a></li>
+          <li><a>Acreage & Rural Land</a></li>
+          <li><a>Twilight Shoots</a></li>
+          <li><a>Cinematic Video Tours</a></li>
+          <li><a>Agent Packages</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Coverage</h4>
+        <ul>
+          <li><a>Sioux Falls, SD</a></li>
+          <li><a>Brandon, SD</a></li>
+          <li><a>Tea & Harrisburg, SD</a></li>
+          <li><a>Dell Rapids, SD</a></li>
+          <li><a>Canton & Lennox, SD</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Prairie Sky Drones · Sioux Falls, SD · FAA Part 107 Certified</span>
+      <span>📞 (605) 555-0199 · hello@prairieskydrones.com</span>
+    </div>
+  </footer>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     ABOUT
+══════════════════════════════════════ -->
+<div id="page-about" class="page">
+  <div class="page-hero">
+    <div class="page-eyebrow">Who We Are</div>
+    <h1>Local Pilots.<br/><em>Serious Results.</em></h1>
+    <p class="page-hero-sub">A Sioux Falls-based drone company built entirely for the South Dakota real estate market. No subcontractors, no middlemen — just local pilots who know this market cold.</p>
+  </div>
+
+  <div style="padding:4rem 6vw;">
+    <div class="about-layout">
+      <div class="about-sticky">
+        <div class="pilot-card">
+          <div class="pilot-photo">
+            🚁
+            <div class="faa-badge">FAA Part 107 Certified Pilot</div>
+          </div>
+          <div class="pilot-name">Jax Schuster</div>
+          <div class="pilot-title">Owner & Lead Drone Operator · Sioux Falls, SD</div>
+          <div class="cert-list">
+            <div class="cert-item">
+              <span>✈️</span>
+              <div><strong>FAA Part 107 Certificate</strong><span>Commercial operations, all of SD</span></div>
+            </div>
+            <div class="cert-item">
+              <span>🛡️</span>
+              <div><strong>$1M Liability Insurance</strong><span>COI available on request</span></div>
+            </div>
+            <div class="cert-item">
+              <span>📡</span>
+              <div><strong>LAANC Authorized</strong><span>Approved near FSD Airport</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-body">
+        <h3>Our Story</h3>
+        <p>Prairie Sky Drones was founded by Jax Schuster, a Sioux Falls-based pilot who kept getting the same question from real estate contacts: "Can you get a drone shot of this?" After the hundredth time, Jax got FAA certified, invested in professional equipment, and went all-in on aerial photography for the Sioux Falls market.</p>
+        <p>This isn't a hobby operation that got a Part 107 cert last month. Jax has logged hundreds of commercial flights across Minnehaha and Lincoln counties — residential listings, new construction, rural acreage, and commercial properties.</p>
+
+        <h3>Why Real Estate Only</h3>
+        <p>A lot of drone companies in South Dakota say they do everything — weddings, inspections, agriculture, you name it. We specialize in real estate because it's where we deliver the most value. Real estate agents aren't our side clients. They're our entire business.</p>
+        <p>That means we understand MLS requirements, listing deadlines, and exactly what images make buyers click. We're built around your workflow, not ours.</p>
+
+        <h3>Equipment</h3>
+        <p>We fly the DJI Mavic 3 Pro and DJI Air 3 — professional-grade drones capable of 4K/60fps video and 48MP stills. Every shoot is backed up on-site. We don't leave without confirming clean footage.</p>
+
+        <h3>Service Area</h3>
+        <p>Based in Sioux Falls, we cover a 40-mile radius with no travel fees — all of Minnehaha and Lincoln counties plus surrounding communities.</p>
+
+        <table class="coverage-table">
+          <thead>
+            <tr><th>City / Area</th><th>County</th><th>Travel Fee</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Sioux Falls</td><td>Minnehaha</td><td>None</td></tr>
+            <tr><td>Brandon</td><td>Minnehaha</td><td>None</td></tr>
+            <tr><td>Tea</td><td>Lincoln</td><td>None</td></tr>
+            <tr><td>Harrisburg</td><td>Lincoln</td><td>None</td></tr>
+            <tr><td>Dell Rapids</td><td>Minnehaha</td><td>None</td></tr>
+            <tr><td>Baltic</td><td>Minnehaha</td><td>None</td></tr>
+            <tr><td>Hartford</td><td>Minnehaha</td><td>None</td></tr>
+            <tr><td>Lennox</td><td>Lincoln</td><td>None</td></tr>
+            <tr><td>Canton</td><td>Lincoln</td><td>None</td></tr>
+            <tr><td>Brookings</td><td>Brookings</td><td>$50</td></tr>
+            <tr><td>Vermillion</td><td>Clay</td><td>$75</td></tr>
+            <tr><td>Mitchell</td><td>Davison</td><td>$100</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-banner">
+    <div><h2>Questions Before You Book?</h2><p>We'll walk you through the process, discuss your listing, or send a sample reel. No commitment required.</p></div>
+    <button class="btn-cream" onclick="showPage('contact')">Let's Talk →</button>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div><span class="footer-logo" onclick="showPage('home')">Prairie Sky <em>Drones</em></span><p>Sioux Falls drone photography for real estate. FAA Part 107 certified.</p></div>
+      <div><h4>Quick Links</h4><ul><li><a onclick="showPage('home')">Home</a></li><li><a onclick="showPage('about')">About</a></li><li><a onclick="showPage('articles')">Resources</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a>📞 (605) 555-0199</a></li><li><a>hello@prairieskydrones.com</a></li><li><a>Sioux Falls, SD 57101</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Prairie Sky Drones · Sioux Falls, SD</span></div>
+  </footer>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     ARTICLES
+══════════════════════════════════════ -->
+<div id="page-articles" class="page">
+  <div class="page-hero">
+    <div class="page-eyebrow">Resources & Guides</div>
+    <h1>Sioux Falls Real Estate<br/><em>Resources</em></h1>
+    <p class="page-hero-sub">Local guides, drone photography tips, and market insights for agents and sellers across SE South Dakota.</p>
+  </div>
+
+  <div class="articles-layout">
+    <div>
+      <div class="article-featured" onclick="showArticle('article1')">
+        <div class="article-featured-img">
+          🏡
+          <div class="featured-badge">Featured</div>
+        </div>
+        <div class="article-featured-body">
+          <div class="article-meta">
+            <span class="tag">Real Estate Tips</span>
+            <span>November 2024</span>
+            <span>8 min read</span>
+          </div>
+          <h2>Why Drone Photography Sells Homes <em>68% Faster</em> in Sioux Falls</h2>
+          <p>The data behind aerial photography and what it means for your next listing in Minnehaha County.</p>
+          <span class="read-more">Read Article →</span>
+        </div>
+      </div>
+
+      <div class="article-cards">
+        <div class="article-card" onclick="showArticle('article2')">
+          <div class="article-card-thumb">🌾</div>
+          <div>
+            <div class="article-meta"><span class="tag">Rural Land</span><span>October 2024</span></div>
+            <h3>Selling Acreage in Lincoln County? Here's What Buyers Want to See From Above</h3>
+            <p>Aerial video is now the #1 request from out-of-state buyers considering South Dakota land.</p>
+            <span class="read-more" style="font-size:0.72rem;">Read →</span>
+          </div>
+        </div>
+        <div class="article-card" onclick="showArticle('article3')">
+          <div class="article-card-thumb">🌅</div>
+          <div>
+            <div class="article-meta"><span class="tag">Photography Tips</span><span>September 2024</span></div>
+            <h3>Golden Hour vs. Twilight Drone Shoots: Which One is Right for Your Listing?</h3>
+            <p>Both are stunning — but one works better for luxury homes and the other dominates for everyday residential.</p>
+            <span class="read-more" style="font-size:0.72rem;">Read →</span>
+          </div>
+        </div>
+        <div class="article-card" onclick="showArticle('article4')">
+          <div class="article-card-thumb">📋</div>
+          <div>
+            <div class="article-meta"><span class="tag">Agent Guide</span><span>August 2024</span></div>
+            <h3>MLS Photo Requirements in South Dakota: A Complete Guide for Listing Agents</h3>
+            <p>MLS formatting rules, image sizes, and video link policies — all in one place.</p>
+            <span class="read-more" style="font-size:0.72rem;">Read →</span>
+          </div>
+        </div>
+        <div class="article-card" onclick="showArticle('article5')">
+          <div class="article-card-thumb">🏗️</div>
+          <div>
+            <div class="article-meta"><span class="tag">New Construction</span><span>July 2024</span></div>
+            <h3>How Brandon SD Builders Are Using Aerial Video to Pre-Sell Homes Before They're Built</h3>
+            <p>Progress flyovers and pre-construction aerials are now standard for Brandon and Tea developers.</p>
+            <span class="read-more" style="font-size:0.72rem;">Read →</span>
+          </div>
+        </div>
+        <div class="article-card" onclick="showArticle('article6')">
+          <div class="article-card-thumb">⚖️</div>
+          <div>
+            <div class="article-meta"><span class="tag">Regulations</span><span>June 2024</span></div>
+            <h3>FAA Drone Rules in Sioux Falls: What Every Real Estate Agent Needs to Know</h3>
+            <p>Hiring a non-certified pilot can invalidate your listing and expose you to fines. Know the rules.</p>
+            <span class="read-more" style="font-size:0.72rem;">Read →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="articles-sidebar" style="position:sticky; top:88px;">
+      <div class="sidebar-cta">
+        <h4>Ready to Book?</h4>
+        <p>Same-week scheduling. 48hr turnaround guaranteed.</p>
+        <button class="btn-cream-sm" onclick="showPage('contact')">Get a Free Quote →</button>
+      </div>
+      <div class="sidebar-box">
+        <div class="sidebar-title">Categories</div>
+        <ul class="sidebar-list">
+          <li>Real Estate Tips</li>
+          <li>Rural Land & Acreage</li>
+          <li>Photography Guides</li>
+          <li>Agent Resources</li>
+          <li>New Construction</li>
+          <li>FAA & Regulations</li>
+          <li>Sioux Falls Market</li>
+        </ul>
+      </div>
+      <div class="sidebar-box">
+        <div class="sidebar-title">Service Areas</div>
+        <ul class="sidebar-list">
+          <li>Sioux Falls, SD</li>
+          <li>Brandon, SD</li>
+          <li>Tea, SD</li>
+          <li>Harrisburg, SD</li>
+          <li>Dell Rapids, SD</li>
+          <li>Canton & Lennox, SD</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div><span class="footer-logo" onclick="showPage('home')">Prairie Sky <em>Drones</em></span><p>Sioux Falls drone photography for real estate.</p></div>
+      <div><h4>Quick Links</h4><ul><li><a onclick="showPage('home')">Home</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a>📞 (605) 555-0199</a></li><li><a>hello@prairieskydrones.com</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Prairie Sky Drones</span></div>
+  </footer>
+</div>
+
+
+<!-- Article Single -->
+<div id="page-article-single" class="page">
+  <div class="article-single">
+    <span class="back-link" onclick="showPage('articles')">← Back to Resources</span>
+    <div style="margin-bottom:2rem; padding-bottom:2rem; border-bottom:1px solid var(--border);">
+      <div class="article-meta">
+        <span class="tag" id="article-tag">Real Estate Tips</span>
+        <span id="article-date">November 2024</span>
+        <span>8 min read</span>
+      </div>
+      <h1 id="article-title">Why Drone Photography Sells Homes 68% Faster in Sioux Falls</h1>
+    </div>
+    <div class="article-body" id="article-body"></div>
+  </div>
+  <div class="cta-banner">
+    <div><h2>Elevate Your Next Listing</h2><p>Serving Sioux Falls, Brandon, Tea, Harrisburg and beyond.</p></div>
+    <button class="btn-cream" onclick="showPage('contact')">Book a Flyover →</button>
+  </div>
+  <footer><div class="footer-bottom" style="border:none; padding-top:2rem;"><span>© 2025 Prairie Sky Drones · Sioux Falls, SD</span></div></footer>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     CONTACT
+══════════════════════════════════════ -->
+<div id="page-contact" class="page">
+  <div class="page-hero">
+    <div class="page-eyebrow">Book a Shoot</div>
+    <h1>Let's Elevate<br/><em>Your Listing</em></h1>
+    <p class="page-hero-sub">Fill out the form and we'll follow up within 2 business hours. Same-week scheduling across the Sioux Falls metro.</p>
+  </div>
+
+  <div class="contact-layout">
+    <div class="contact-info">
+      <h3>📍 Based in Sioux Falls, SD</h3>
+      <p>No travel fee within 40 miles. All of Minnehaha, Lincoln, Turner, and McCook counties.</p>
+
+      <h3>📞 Call or Text</h3>
+      <p style="font-size:1.1rem; font-weight:700; color:var(--charcoal);">(605) 555-0199</p>
+      <p>Mon–Sat, 8am–7pm CT</p>
+
+      <h3>✉️ Email</h3>
+      <p>hello@prairieskydrones.com</p>
+
+      <h3>⏱️ What to Expect</h3>
+      <div class="process-steps">
+        <div class="process-step"><div class="step-num">1</div><p>Submit the form — we follow up within 2 hours</p></div>
+        <div class="process-step"><div class="step-num">2</div><p>We confirm date, time, and scope</p></div>
+        <div class="process-step"><div class="step-num">3</div><p>We fly and capture your property</p></div>
+        <div class="process-step"><div class="step-num">4</div><p>Edited files delivered within 48 hours</p></div>
+        <div class="process-step"><div class="step-num">5</div><p>You list — and sell faster</p></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="form-row"><label>Your Name</label><input type="text" placeholder="Sarah Johnson" /></div>
+      <div class="form-row"><label>Email Address</label><input type="email" placeholder="sarah@remax.com" /></div>
+      <div class="form-row"><label>Phone Number</label><input type="tel" placeholder="(605) 555-0000" /></div>
+      <div class="form-row">
+        <label>Service Type</label>
+        <select>
+          <option value="">Select a service...</option>
+          <option>Residential Flyover — from $149</option>
+          <option>Luxury / New Construction — from $249</option>
+          <option>Acreage / Rural Land — from $199</option>
+          <option>Twilight Aerial Shoot — add $99</option>
+          <option>Cinematic Video Tour — from $349</option>
+          <option>Agent Monthly Package</option>
+          <option>Not Sure — Let's Talk</option>
+        </select>
+      </div>
+      <div class="form-row"><label>Property Address</label><input type="text" placeholder="1234 Prairie Ave, Tea, SD 57064" /></div>
+      <div class="form-row"><label>Tell Us About Your Listing</label><textarea placeholder="Square footage, listing price, desired shoot date, anything that helps us prepare..."></textarea></div>
+      <button class="form-submit" onclick="handleFormSubmit(event)">Request a Quote →</button>
+      <p style="color:var(--muted); font-size:0.78rem; margin-top:0.75rem; text-align:center;">We typically respond within 2 business hours. No commitment required.</p>
+      <div id="form-success">✓ Quote request received — we'll be in touch within 2 hours.</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div><span class="footer-logo" onclick="showPage('home')">Prairie Sky <em>Drones</em></span><p>FAA-certified drone photography for Sioux Falls real estate.</p></div>
+      <div><h4>Quick Links</h4><ul><li><a onclick="showPage('home')">Home</a></li><li><a onclick="showPage('about')">About</a></li><li><a onclick="showPage('articles')">Resources</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a>📞 (605) 555-0199</a></li><li><a>hello@prairieskydrones.com</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Prairie Sky Drones · Sioux Falls, SD</span></div>
+  </footer>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     TEMPLATE GUIDE
+══════════════════════════════════════ -->
+<div id="page-templates" class="page">
+  <div class="page-hero">
+    <div class="page-eyebrow">Internal Reference</div>
+    <h1>Page & Content<br/><em>Template Guide</em></h1>
+    <p class="page-hero-sub">Use this every time you add or update content. These rules ensure SEO consistency, brand coherence, and rankings across all pages.</p>
+  </div>
+
+  <div class="template-guide">
+    <div class="template-section">
+      <h3>🏠 Homepage <span class="template-badge">index.html</span></h3>
+      <table class="template-table">
+        <thead><tr><th>Element</th><th>Rule</th></tr></thead>
+        <tbody>
+          <tr><td>&lt;title&gt;</td><td><code>[City] Drone Photography | [Service] | Prairie Sky Drones</code> — max 60 chars</td></tr>
+          <tr><td>Meta Description</td><td>Include city, service type, and one USP. 140–155 chars.</td></tr>
+          <tr><td>H1</td><td>One per page. Must include primary keyword + city. Playfair Display style.</td></tr>
+          <tr><td>Hero Stats</td><td>4 stats max. Update quarterly with real numbers when available.</td></tr>
+          <tr><td>Services Grid</td><td>6 cards max. Each: service tag + H3 title + 2-line description + starting price.</td></tr>
+          <tr><td>Testimonials</td><td>3 minimum. Must include agent name, brokerage, and SD city.</td></tr>
+          <tr><td>Coverage Cities</td><td>Always list all covered cities. Update city-pill grid if coverage expands.</td></tr>
+          <tr><td>CTA Banner</td><td>One per page near bottom. Links to contact. Sky blue gradient.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="template-section">
+      <h3>👤 About Page <span class="template-badge">about.html</span></h3>
+      <table class="template-table">
+        <thead><tr><th>Element</th><th>Rule</th></tr></thead>
+        <tbody>
+          <tr><td>Pilot Card</td><td>Sticky left column. Replace placeholder photo ASAP. Always show FAA badge.</td></tr>
+          <tr><td>Certifications</td><td>Always list: FAA Part 107, $1M insurance, LAANC authorization.</td></tr>
+          <tr><td>Coverage Table</td><td>Update when service area changes. City, county, and travel fee columns required.</td></tr>
+          <tr><td>Tone</td><td>First-person plural ("we"). Local-specific details. No corporate boilerplate.</td></tr>
+          <tr><td>Equipment</td><td>List specific drone models. Update when equipment changes.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="template-section">
+      <h3>📰 Articles Index <span class="template-badge">resources/</span></h3>
+      <table class="template-table">
+        <thead><tr><th>Element</th><th>Rule</th></tr></thead>
+        <tbody>
+          <tr><td>Featured Article</td><td>Always the newest or highest-traffic piece. Full-width card with image.</td></tr>
+          <tr><td>Article Cards</td><td>Thumb + category tag + date + H3 + 1-line excerpt + "Read →" link.</td></tr>
+          <tr><td>Sidebar CTA</td><td>Sienna box, always first in sidebar. Update copy quarterly.</td></tr>
+          <tr><td>Frequency</td><td>2 articles/month minimum for local SEO compounding effect.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="template-section">
+      <h3>📄 Single Article <span class="template-badge">resources/[slug].html</span></h3>
+      <table class="template-table">
+        <thead><tr><th>Element</th><th>Rule</th></tr></thead>
+        <tbody>
+          <tr><td>&lt;title&gt;</td><td><code>[Keyword] in [City], SD | Prairie Sky Drones</code></td></tr>
+          <tr><td>H1</td><td>Include keyword and city. One per article. Max 70 chars.</td></tr>
+          <tr><td>Word count</td><td>900–1,400 words. Under 800 rarely ranks for local intent.</td></tr>
+          <tr><td>City mentions</td><td>Mention Sioux Falls (or target city) at least 3× naturally in body.</td></tr>
+          <tr><td>Internal links</td><td>2–3 links to service pages or other articles. Never orphan an article.</td></tr>
+          <tr><td>CTA</td><td>Full-width CTA banner at bottom of every article.</td></tr>
+          <tr><td>Back link</td><td>Always include "← Back to Resources" at top.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="template-section">
+      <h3>🔍 SEO Cheatsheet <span class="template-badge">All Pages</span></h3>
+      <table class="template-table">
+        <thead><tr><th>Rule</th><th>Details</th></tr></thead>
+        <tbody>
+          <tr><td>Primary keywords</td><td>"drone photography Sioux Falls SD" · "real estate drone Sioux Falls" · "aerial photography South Dakota"</td></tr>
+          <tr><td>Image alt text</td><td><code>Drone aerial photo of [property type] in [City], SD</code></td></tr>
+          <tr><td>Google Business</td><td>Keep NAP identical to website. Post 1 photo/week. Respond to all reviews within 24hrs.</td></tr>
+          <tr><td>Review strategy</td><td>Ask for reviews that include city name + service type. Generic stars rank lower.</td></tr>
+          <tr><td>Schema markup</td><td>LocalBusiness on homepage. Article schema on all posts.</td></tr>
+          <tr><td>Backlink targets</td><td>SF Association of Realtors · SD real estate blogs · local news · agent websites</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer><div class="footer-bottom" style="border:none; padding-top:2rem;"><span>© 2025 Prairie Sky Drones · Internal Reference</span></div></footer>
+</div>
+
+
+<script>
+const pages = ['home','about','articles','article-single','contact','templates'];
+
+function showPage(id) {
+  pages.forEach(p => {
+    const el = document.getElementById('page-' + p);
+    const nav = document.getElementById('nav-' + p);
+    if (el) el.classList.remove('active');
+    if (nav) nav.classList.remove('active');
+  });
+  const target = document.getElementById('page-' + id);
+  if (target) { target.classList.add('active'); window.scrollTo(0,0); }
+  const navTarget = document.getElementById('nav-' + id);
+  if (navTarget) navTarget.classList.add('active');
+}
+
+const articleContent = {
+  article1: {
+    tag: 'Real Estate Tips', date: 'November 2024',
+    title: 'Why Drone Photography Sells Homes 68% Faster in Sioux Falls',
+    body: `
+      <p>The Sioux Falls real estate market is competitive. With median home prices rising steadily and inventory tightening across Minnehaha and Lincoln counties, listing agents need every edge they can get. Drone photography has moved from a premium add-on to a standard expectation — and the numbers back it up.</p>
+      <h2>The Data Behind Aerial Photography</h2>
+      <p>According to data compiled by the National Association of Realtors, homes marketed with drone photography sell 68% faster than those without. In a market like Sioux Falls — where buyers are often relocating from Minneapolis, Omaha, or out of state — aerial video is frequently the first impression a buyer gets of a neighborhood, street context, and property layout.</p>
+      <p>Out-of-state buyers can't drive by the listing first. A two-minute aerial flyover gives them context no ground photo can: proximity to parks, lot size relative to neighbors, driveway layout, views from the backyard, and surrounding neighborhood character.</p>
+      <h2>What Aerial Shows That Ground Photos Can't</h2>
+      <ul>
+        <li>True lot size and property boundaries</li>
+        <li>Proximity to parks, schools, and commercial areas</li>
+        <li>Neighborhood quality and nearby infrastructure</li>
+        <li>Acreage layout for rural and agricultural properties</li>
+        <li>Roof condition — critical for buyers' insurance decisions</li>
+        <li>Pond, treeline, and privacy features</li>
+      </ul>
+      <h2>The Sioux Falls Market Specifically</h2>
+      <p>Sioux Falls has characteristics that make aerial photography especially powerful. The Big Sioux River corridor, the rapidly expanding Brandon and Tea suburbs, and the acreage properties in Lincoln County all benefit from aerial context. A $450,000 home on a half-acre in Harrisburg looks very different from above — and that difference converts browsers into scheduled showings.</p>
+      <h2>What This Means for Your Next Listing</h2>
+      <p>If you're listing in Sioux Falls, Brandon, Tea, or anywhere in SE South Dakota, drone photography is no longer a luxury. It's a competitive necessity. Prairie Sky Drones offers 48-hour turnaround on edited photos and video, starting at $149 for residential flyovers.</p>
+    `
+  }
+};
+
+function showArticle(id) {
+  const data = articleContent[id] || {
+    tag: 'Resource', date: '2024',
+    title: 'Article Coming Soon',
+    body: '<p>This article is being prepared. <a onclick="showPage(\'contact\')" style="color:var(--sienna);cursor:pointer;">Contact us</a> for more information.</p>'
+  };
+  document.getElementById('article-tag').textContent = data.tag;
+  document.getElementById('article-date').textContent = data.date;
+  document.getElementById('article-title').textContent = data.title;
+  document.getElementById('article-body').innerHTML = data.body;
+  showPage('article-single');
+}
+
+function handleFormSubmit(e) {
+  e.preventDefault();
+  const s = document.getElementById('form-success');
+  s.style.display = 'block';
+  setTimeout(() => { s.style.display = 'none'; }, 6000);
+}
+</script>
+</body>
+</html>
