@@ -3,6 +3,16 @@ function toggleMenu() {
   m.classList.toggle('open');
 }
 
+// Close mobile menu when any nav link is tapped
+document.addEventListener('DOMContentLoaded', function () {
+  const menu = document.getElementById('mobile-menu');
+  menu.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      menu.classList.remove('open');
+    });
+  });
+});
+
 const articleContent = {
   article1: {
     tag: 'Real Estate Tips', date: 'November 2024',
