@@ -16,10 +16,10 @@
 
 After every commit that adds or modifies a page, route, or significant content change:
 
-**`public/sitemap.xml`** — update `lastmod` date for any changed pages. Add new `<url>` entries for new pages. Remove entries for deleted pages.
+**`sitemap.xml`** — update `lastmod` date for any changed pages. Add new `<url>` entries for new pages. Remove entries for deleted pages.
 
-**`public/robots.txt`** — only update if new directories or routes are added that should be blocked or allowed.
+**`robots.txt`** — only update if new directories or routes are added that should be blocked or allowed.
 
-**`public/llms.txt`** — update if services, pricing, service area, or page list changes.
+**`llms.txt`** — update if services, pricing, service area, or page list changes.
 
 Never update these files for CSS, JS, or cosmetic-only changes.
