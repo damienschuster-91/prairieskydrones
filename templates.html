@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Guide | Prairie Sky Drones</title>
+  <meta name="description" content="Prairie Sky Drones page guide and resources." />
+  <link rel="canonical" href="https://www.prairieskydrones.com/templates" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Prairie Sky Drones",
+    "description": "FAA-certified drone photography for real estate in Sioux Falls, SD.",
+    "url": "https://www.prairieskydrones.com",
+    "telephone": "+1-605-555-0199",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sioux Falls",
+      "addressRegion": "SD",
+      "postalCode": "57101",
+      "addressCountry": "US"
+    },
+    "areaServed": ["Sioux Falls","Brandon","Tea","Harrisburg","Dell Rapids","Baltic","Lennox","Canton"],
+    "priceRange": "$$"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&family=Lato:ital,wght@1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a href="/" class="nav-logo">Prairie Sky <em>Drones</em></a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/articles">Resources</a>
+    <a href="/templates" class="active">Page Guide</a>
+    <a href="/contact" class="nav-cta">Book a Flyover</a>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/">Home</a>
+  <a href="/about">About</a>
+  <a href="/articles">Resources</a>
+  <a href="/templates">Page Guide</a>
+  <a href="/contact" class="mobile-cta">Book a Flyover</a>
+</div>
+
+  <div class="page-hero">
+    <div class="page-eyebrow">Internal Reference</div>
+    <h1>Page & Content<br/><em>Template Guide</em></h1>
+    <p class="page-hero-sub">Use this every time you add or update content. These rules ensure SEO consistency, brand coherence, and rankings across all pages.</p>
+  </div>
+
+  <div class="template-guide">
+    <div class="template-section">
+      <h3>🏠 Homepage <span class="template-badge">index.html</span></h3>
+      <table class="template-table">
+        <thead><tr><th>Element</th><th>Rule</th></tr></thead>
+        <tbody>
+          <tr><td>&lt;title&gt;</td><td><code>[City] Drone Photography | [Service] | Prairie Sky Drones</code> — max 60 chars</td></tr>
+          <tr><td>Meta Description</td><td>Include city, service type, and one USP. 140–155 chars.</td></tr>
+          <tr><td>H1</td><td>One per page. Must include primary keyword + city. Playfair Display style.</td></tr>
+          <tr><td>Hero Stats</td><td>4 stats max. Update quarterly with real numbers when available.</td></tr>
+          <tr><td>Services Grid</td><td>6 cards max. Each: service tag + H3 title + 2-line description + starting price.</td></tr>
+          <tr><td>Testimonials</td><td>3 minimum. Must include agent name, brokerage, and SD city.</td></tr>
+          <tr><td>Coverage Cities</td><td>Always list all covered cities. Update city-pill grid if coverage expands.</td></tr>
+          <tr><td>CTA Banner</td><td>One per page near bottom. Links to contact. Sky blue gradient.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="template-section">
+      <h3>👤 About Page <span class="template-badge">about.html</span></h3>
+      <table class="template-table">
+        <thead><tr><th>Element</th><th>Rule</th></tr></thead>
+        <tbody>
+          <tr><td>Pilot Card</td><td>Sticky left column. Replace placeholder photo ASAP. Always show FAA badge.</td></tr>
+          <tr><td>Certifications</td><td>Always list: FAA Part 107, $1M insurance, LAANC authorization.</td></tr>
+          <tr><td>Coverage Table</td><td>Update when service area changes. City, county, and travel fee columns required.</td></tr>
+          <tr><td>Tone</td><td>First-person plural ("we"). Local-specific details. No corporate boilerplate.</td></tr>
+          <tr><td>Equipment</td><td>List specific drone models. Update when equipment changes.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="template-section">
+      <h3>📰 Articles Index <span class="template-badge">resources/</span></h3>
+      <table class="template-table">
+        <thead><tr><th>Element</th><th>Rule</th></tr></thead>
+        <tbody>
+          <tr><td>Featured Article</td><td>Always the newest or highest-traffic piece. Full-width card with image.</td></tr>
+          <tr><td>Article Cards</td><td>Thumb + category tag + date + H3 + 1-line excerpt + "Read →" link.</td></tr>
+          <tr><td>Sidebar CTA</td><td>Sienna box, always first in sidebar. Update copy quarterly.</td></tr>
+          <tr><td>Frequency</td><td>2 articles/month minimum for local SEO compounding effect.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="template-section">
+      <h3>📄 Single Article <span class="template-badge">resources/[slug].html</span></h3>
+      <table class="template-table">
+        <thead><tr><th>Element</th><th>Rule</th></tr></thead>
+        <tbody>
+          <tr><td>&lt;title&gt;</td><td><code>[Keyword] in [City], SD | Prairie Sky Drones</code></td></tr>
+          <tr><td>H1</td><td>Include keyword and city. One per article. Max 70 chars.</td></tr>
+          <tr><td>Word count</td><td>900–1,400 words. Under 800 rarely ranks for local intent.</td></tr>
+          <tr><td>City mentions</td><td>Mention Sioux Falls (or target city) at least 3× naturally in body.</td></tr>
+          <tr><td>Internal links</td><td>2–3 links to service pages or other articles. Never orphan an article.</td></tr>
+          <tr><td>CTA</td><td>Full-width CTA banner at bottom of every article.</td></tr>
+          <tr><td>Back link</td><td>Always include "← Back to Resources" at top.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="template-section">
+      <h3>🔍 SEO Cheatsheet <span class="template-badge">All Pages</span></h3>
+      <table class="template-table">
+        <thead><tr><th>Rule</th><th>Details</th></tr></thead>
+        <tbody>
+          <tr><td>Primary keywords</td><td>"drone photography Sioux Falls SD" · "real estate drone Sioux Falls" · "aerial photography South Dakota"</td></tr>
+          <tr><td>Image alt text</td><td><code>Drone aerial photo of [property type] in [City], SD</code></td></tr>
+          <tr><td>Google Business</td><td>Keep NAP identical to website. Post 1 photo/week. Respond to all reviews within 24hrs.</td></tr>
+          <tr><td>Review strategy</td><td>Ask for reviews that include city name + service type. Generic stars rank lower.</td></tr>
+          <tr><td>Schema markup</td><td>LocalBusiness on homepage. Article schema on all posts.</td></tr>
+          <tr><td>Backlink targets</td><td>SF Association of Realtors · SD real estate blogs · local news · agent websites</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer><div class="footer-bottom" style="border:none; padding-top:2rem;"><span>© 2025 Prairie Sky Drones · Internal Reference</span></div></footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

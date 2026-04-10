@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Drone Flyover | Prairie Sky Drones | Sioux Falls</title>
+  <meta name="description" content="Book your real estate drone photography session with Prairie Sky Drones. Serving Sioux Falls, Brandon, Tea, and all of SE South Dakota." />
+  <link rel="canonical" href="https://www.prairieskydrones.com/contact" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Prairie Sky Drones",
+    "description": "FAA-certified drone photography for real estate in Sioux Falls, SD.",
+    "url": "https://www.prairieskydrones.com",
+    "telephone": "+1-605-555-0199",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sioux Falls",
+      "addressRegion": "SD",
+      "postalCode": "57101",
+      "addressCountry": "US"
+    },
+    "areaServed": ["Sioux Falls","Brandon","Tea","Harrisburg","Dell Rapids","Baltic","Lennox","Canton"],
+    "priceRange": "$$"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&family=Lato:ital,wght@1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a href="/" class="nav-logo">Prairie Sky <em>Drones</em></a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/articles">Resources</a>
+    <a href="/templates">Page Guide</a>
+    <a href="/contact" class="nav-cta active">Book a Flyover</a>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/">Home</a>
+  <a href="/about">About</a>
+  <a href="/articles">Resources</a>
+  <a href="/templates">Page Guide</a>
+  <a href="/contact" class="mobile-cta">Book a Flyover</a>
+</div>
+
+  <div class="page-hero">
+    <div class="page-eyebrow">Book a Shoot</div>
+    <h1>Let's Elevate<br/><em>Your Listing</em></h1>
+    <p class="page-hero-sub">Fill out the form and we'll follow up within 2 business hours. Same-week scheduling across the Sioux Falls metro.</p>
+  </div>
+
+  <div class="contact-layout">
+    <div class="contact-info">
+      <h3>📍 Based in Sioux Falls, SD</h3>
+      <p>No travel fee within 40 miles. All of Minnehaha, Lincoln, Turner, and McCook counties.</p>
+
+      <h3>📞 Call or Text</h3>
+      <p style="font-size:1.1rem; font-weight:700; color:var(--charcoal);">(605) 555-0199</p>
+      <p>Mon–Sat, 8am–7pm CT</p>
+
+      <h3>✉️ Email</h3>
+      <p>hello@prairieskydrones.com</p>
+
+      <h3>⏱️ What to Expect</h3>
+      <div class="process-steps">
+        <div class="process-step"><div class="step-num">1</div><p>Submit the form — we follow up within 2 hours</p></div>
+        <div class="process-step"><div class="step-num">2</div><p>We confirm date, time, and scope</p></div>
+        <div class="process-step"><div class="step-num">3</div><p>We fly and capture your property</p></div>
+        <div class="process-step"><div class="step-num">4</div><p>Edited files delivered within 48 hours</p></div>
+        <div class="process-step"><div class="step-num">5</div><p>You list — and sell faster</p></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="form-row"><label>Your Name</label><input type="text" placeholder="Sarah Johnson" /></div>
+      <div class="form-row"><label>Email Address</label><input type="email" placeholder="sarah@remax.com" /></div>
+      <div class="form-row"><label>Phone Number</label><input type="tel" placeholder="(605) 555-0000" /></div>
+      <div class="form-row">
+        <label>Service Type</label>
+        <select>
+          <option value="">Select a service...</option>
+          <option>Residential Flyover — from $149</option>
+          <option>Luxury / New Construction — from $249</option>
+          <option>Acreage / Rural Land — from $199</option>
+          <option>Twilight Aerial Shoot — add $99</option>
+          <option>Cinematic Video Tour — from $349</option>
+          <option>Agent Monthly Package</option>
+          <option>Not Sure — Let's Talk</option>
+        </select>
+      </div>
+      <div class="form-row"><label>Property Address</label><input type="text" placeholder="1234 Prairie Ave, Tea, SD 57064" /></div>
+      <div class="form-row"><label>Tell Us About Your Listing</label><textarea placeholder="Square footage, listing price, desired shoot date, anything that helps us prepare..."></textarea></div>
+      <button class="form-submit" onclick="handleFormSubmit(event)">Request a Quote →</button>
+      <p style="color:var(--muted); font-size:0.78rem; margin-top:0.75rem; text-align:center;">We typically respond within 2 business hours. No commitment required.</p>
+      <div id="form-success">✓ Quote request received — we'll be in touch within 2 hours.</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div><span class="footer-logo" href="/">Prairie Sky <em>Drones</em></span><p>FAA-certified drone photography for Sioux Falls real estate.</p></div>
+      <div><h4>Quick Links</h4><ul><li><a href="/">Home</a></li><li><a href="/about">About</a></li><li><a href="/articles">Resources</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a>📞 (605) 555-0199</a></li><li><a>hello@prairieskydrones.com</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Prairie Sky Drones · Sioux Falls, SD</span></div>
+  </footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

@@ -3,23 +3,6 @@ function toggleMenu() {
   m.classList.toggle('open');
 }
 
-const pages = ['home','about','articles','article-single','contact','templates'];
-
-function showPage(id) {
-  // Close mobile menu
-  document.getElementById('mobile-menu')?.classList.remove('open');
-  pages.forEach(p => {
-    const el = document.getElementById('page-' + p);
-    const nav = document.getElementById('nav-' + p);
-    if (el) el.classList.remove('active');
-    if (nav) nav.classList.remove('active');
-  });
-  const target = document.getElementById('page-' + id);
-  if (target) { target.classList.add('active'); window.scrollTo(0,0); }
-  const navTarget = document.getElementById('nav-' + id);
-  if (navTarget) navTarget.classList.add('active');
-}
-
 const articleContent = {
   article1: {
     tag: 'Real Estate Tips', date: 'November 2024',
@@ -50,13 +33,16 @@ function showArticle(id) {
   const data = articleContent[id] || {
     tag: 'Resource', date: '2024',
     title: 'Article Coming Soon',
-    body: '<p>This article is being prepared. <a onclick="showPage(\'contact\')" style="color:var(--sienna);cursor:pointer;">Contact us</a> for more information.</p>'
+    body: '<p>This article is being prepared. <a href="/contact" style="color:var(--sienna);">Contact us</a> for more information.</p>'
   };
   document.getElementById('article-tag').textContent = data.tag;
   document.getElementById('article-date').textContent = data.date;
   document.getElementById('article-title').textContent = data.title;
   document.getElementById('article-body').innerHTML = data.body;
-  showPage('article-single');
+  const list = document.getElementById('page-article-list');
+  if (list) list.style.display = 'none';
+  document.getElementById('page-article-single').classList.add('active');
+  window.scrollTo(0, 0);
 }
 
 function handleFormSubmit(e) {

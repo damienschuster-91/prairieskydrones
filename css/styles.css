@@ -73,8 +73,12 @@
     .nav-cta:hover { background: var(--sienna-lt) !important; }
 
     /* ── PAGES ── */
-    .page { display: none; padding-top: 68px; }
-    .page.active { display: block; animation: fadeUp 0.35s ease both; }
+    /* Each page is its own HTML file — .page is always visible.
+       article-single is a mini-SPA inside articles.html, hidden until showArticle() */
+    .page { display: block; padding-top: 68px; }
+    .page.hidden { display: none; }
+    #page-article-single { display: none; }
+    #page-article-single.active { display: block; animation: fadeUp 0.35s ease both; }
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
