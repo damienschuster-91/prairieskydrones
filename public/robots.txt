@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /*.vercel.app/
+
+Sitemap: https://prairieskydrones.com/sitemap.xml
