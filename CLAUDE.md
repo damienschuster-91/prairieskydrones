@@ -12,6 +12,14 @@
 - `/contact` → `contact.html`
 - `/templates` → `templates.html`
 
+## Nav Links (public-facing only)
+- Home
+- About
+- Resources
+- Book a Flyover (CTA)
+
+Do NOT add Page Guide, Templates, or any internal pages to the nav.
+
 ## SEO Files — Update Rules
 
 After every commit that adds or modifies a page, route, or significant content change:
