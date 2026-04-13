@@ -55,9 +55,13 @@ function showArticle(id) {
   window.scrollTo(0, 0);
 }
 
-function handleFormSubmit(e) {
-  e.preventDefault();
-  const s = document.getElementById('form-success');
-  s.style.display = 'block';
-  setTimeout(() => { s.style.display = 'none'; }, 6000);
+// Show success message if redirected back after form submission
+if (new URLSearchParams(window.location.search).get('sent') === '1') {
+  document.addEventListener('DOMContentLoaded', function () {
+    const s = document.getElementById('form-success');
+    if (s) {
+      s.style.display = 'block';
+      setTimeout(function () { s.style.display = 'none'; }, 8000);
+    }
+  });
 }
