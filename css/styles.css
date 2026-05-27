@@ -52,6 +52,8 @@
       color: var(--charcoal);
       cursor: pointer;
       letter-spacing: 0.01em;
+      text-decoration: none;
+      flex-shrink: 0;
     }
     .nav-logo em {
       color: var(--sienna);
@@ -68,6 +70,7 @@
     .nav-cta {
       background: var(--sienna) !important; color: var(--cream) !important;
       padding: 0.5rem 1.4rem; opacity: 1 !important;
+      border-radius: 3px;
       transition: background 0.2s !important;
     }
     .nav-cta:hover { background: var(--sienna-lt) !important; }
@@ -825,6 +828,7 @@
       color: var(--charcoal); font-size: 0.9rem;
       font-weight: 700; letter-spacing: 0.05em;
       text-transform: uppercase; cursor: pointer;
+      text-decoration: none;
       transition: color 0.2s;
     }
     .mobile-menu a:last-child { border-bottom: none; margin-top: 0.75rem; }
