@@ -1,7 +1,7 @@
 # Prairie Sky Drones
 
 ## About
-Prairie Sky Drones provides FAA Part 107 certified drone photography and video for real estate agents across Sioux Falls, SD and surrounding areas. Our certified remote pilots are fully insured.
+Prairie Sky Drones provides FAA Part 107 certified drone photography and video for real estate agents across South Dakota, plus border areas in Nebraska, Wyoming, and Montana. Two pilots, two hubs — Sioux Falls (SE SD) and Rapid City (West SD, Black Hills).
 
 ## Pages
 - Home: https://prairieskydrones.com/
@@ -16,8 +16,20 @@ Prairie Sky Drones provides FAA Part 107 certified drone photography and video f
 - Twilight Shoot (add-on): $99
 - Cinematic Video Tour: $349
 
-## Service Area
-Sioux Falls, Brandon, Tea, Harrisburg, Dell Rapids, Baltic, Canton, Lennox (SE South Dakota)
+## Pilots
+- Jax Schuster — Sioux Falls hub, SE South Dakota
+- Rapid City pilot — West SD, Black Hills, and border areas
+
+## Service Area — Sioux Falls Hub (Jax)
+Counties: Minnehaha, Lincoln, Turner, McCook, Moody, Lake, Brookings, Kingsbury, Hamlin, Deuel (SD)
+Cities: Sioux Falls, Brandon, Tea, Harrisburg, Dell Rapids, Baltic, Canton, Lennox, Hartford, Brookings, Watertown, Madison, Yankton
+
+## Service Area — Rapid City Hub
+SD Counties: Pennington, Meade, Lawrence, Custer, Fall River, Butte, Harding
+SD Cities: Rapid City, Sturgis, Spearfish, Deadwood, Hot Springs, Belle Fourche, Custer, Keystone, Hill City
+NE Counties: Dawes, Sioux, Sheridan — Cities: Chadron, Crawford, Gordon
+WY Counties: Crook, Weston, Campbell — Cities: Sundance, Newcastle, Gillette
+MT Counties: Carter, Fallon, Powder River — Cities: Ekalaka, Baker, Broadus
 
 ## Contact
 https://prairieskydrones.com/contact
