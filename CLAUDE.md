@@ -12,6 +12,28 @@
 - `/contact` → `contact.html`
 - `/templates` → `templates.html`
 
+## City Landing Pages (SEO — not in nav)
+Sioux Falls market:
+- `/brandon-sd` → `brandon-sd.html`
+- `/tea-sd` → `tea-sd.html`
+- `/harrisburg-sd` → `harrisburg-sd.html`
+- `/dell-rapids-sd` → `dell-rapids-sd.html`
+- `/canton-sd` → `canton-sd.html`
+
+Rapid City / Black Hills market:
+- `/rapid-city-sd` → `rapid-city-sd.html`
+- `/spearfish-sd` → `spearfish-sd.html`
+- `/sturgis-sd` → `sturgis-sd.html`
+- `/deadwood-sd` → `deadwood-sd.html`
+- `/hot-springs-sd` → `hot-springs-sd.html`
+
+Border markets (NE / WY):
+- `/chadron-ne` → `chadron-ne.html`
+- `/sundance-wy` → `sundance-wy.html`
+- `/gillette-wy` → `gillette-wy.html`
+
+These are linked from `articles.html` (Service Areas section) and the sitemap, but must NOT be added to the main nav.
+
 ## Nav Links (public-facing only)
 - Home
 - About
