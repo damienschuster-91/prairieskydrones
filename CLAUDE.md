@@ -32,15 +32,21 @@ Border markets (NE / WY):
 - `/sundance-wy` → `sundance-wy.html`
 - `/gillette-wy` → `gillette-wy.html`
 
-These are linked from `articles.html` (Service Areas section) and the sitemap, but must NOT be added to the main nav.
+City pages must NOT be added to the main nav. They are linked from the sitemap, `articles.html` (Service Areas section), and the `service-areas.html` hub.
+
+**IMPORTANT: Any new city page MUST be linked from `service-areas.html`** (in the correct regional section) as well as added to the sitemap and `articles.html`.
+
+## Hub Page
+- `/service-areas` → `service-areas.html` — hub linking to every city page, grouped by region. Keep it in sync when city pages are added or removed.
 
 ## Nav Links (public-facing only)
 - Home
 - About
 - Resources
+- Service Areas → `/service-areas`
 - Book a Flyover (CTA)
 
-Do NOT add Page Guide, Templates, or any internal pages to the nav.
+Do NOT add Page Guide, Templates, or individual city pages to the nav.
 
 ## Pilots & Service Area
 Two pilots, two hubs:
